@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    body {
+        margin: 0;
+    }
+
+    .slide-show-container {
+        position: relative;
+        height: 300px;
+        /*outline: 1px solid black;*/
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        /*outline: 1px solid black;*/
+    }
+
+    .slide img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .slide .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+
+    .arrow {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 20px 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-decoration: none;
+        z-index: 2;
+    }
+
+    .arrow.previous {
+        left: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .arrow.next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .circles-container {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+    }
+
+    .circles {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 0 2px 0 2px;
+        border-radius: 50%;
+        border: 1px solid grey;
+        background-color: white;
+    }
+
+    .circles:hover {
+        border-color: blue;
+        /*cursor:pointer;*/
+    }
+
+    .circles.current {
+        background-color: grey;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="slide-show-container">
+        <div class="slide">
+            <img src="images/flags/Russia.png">
+            <div class="caption">Russia</div>
+        </div>
+        <div class="slide">
+            <img src="images/flags/Argentina.png">
+            <div class="caption">Argentina</div>
+        </div>
+        <div class="slide">
+            <img src="images/flags/Japan.png">
+            <div class="caption">Japan</div>
+        </div>
+        <a class="arrow previous" href="#">&#10094;</a>
+        <a class="arrow next" href="#">&#10095;</a>
+        <div class="circles-container">
+            <span class="circles one"></span><span class="circles two"></span><span class="circles three"></span>
+        </div>
+    </div>
+    <div class="progress"></div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    var slideIndex = 0;
+    $('.arrow').on('click', function(e) {
+        e.preventDefault();
+        if (this.classList.contains('next')) {
+            console.log("next");
+            $('.slide').eq(slideIndex).css({ "position": "fixed", "height": "300px", "z-index": "1" }).animate({ left: "100%" }, 500,"swing",function() {
+                $(this).removeAttr('style');
+            });
+            $('.circles').eq(slideIndex).removeClass('current');
+            slideIndex = (slideIndex + 1) % 3;
+            $('.slide').eq(slideIndex).css('display', 'block');
+            $('.circles').eq(slideIndex).addClass('current');
+
+        } else {
+            console.log("previous");
+            $('.slide').eq(slideIndex).css({ "position": "fixed", "height": "300px", "z-index": "1" }).animate({ left: "-100%" }, 500,"swing",function() {
+                $(this).removeAttr('style');
+            });
+            $('.circles').eq(slideIndex).removeClass('current');
+            slideIndex = (slideIndex - 1) < 0 ? 2 : (slideIndex - 1);
+            $('.slide').eq(slideIndex).css('display', 'block');
+            $('.circles').eq(slideIndex).addClass('current');
+        }
+    });
+    $(function() {
+        $('.slide').eq(slideIndex).css('display', 'block');
+        $('.circles').eq(slideIndex).addClass('current');
+    });
+    </script>
+</body>
+
+</html>

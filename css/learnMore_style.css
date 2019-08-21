@@ -1,0 +1,198 @@
+#cover{
+	position:relative;
+	height: 400px;
+	background-image: url('../images/stadium.jpg');
+	background-position: center bottom;
+	background-size: cover;
+	color: white;
+    font-family: open-sans;
+}
+#cover-data-container{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.flag-image{
+	width:300px;
+	height:175px;
+	object-fit: fill;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.3);
+}
+.team-name-container{
+	text-align: center;
+	padding:5px 10px;
+}
+.stage-date-time-score-status-container{
+	text-align: center;
+}
+.score-container{
+	font-size: 60px;
+}
+#tabs-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	background-color: var(--secondary-color);
+	position: -webkit-sticky;
+	position:sticky;
+	top:48px;
+	font-family: open-sans;
+	z-index:1;
+}
+.tab{
+	padding: 10px 20px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+.tab:hover:not(.current-tab){
+	background-color: #A8A8A8;
+}
+.current-tab{
+	background-color: #A8A8A8;
+	padding: 10px 20px 5px 20px;
+	border-bottom: 5px solid var(--primary-color);
+}
+#content{
+	position:relative;
+	font-family: open-sans;
+}
+.page{
+	position:absolute;
+	box-sizing: border-box;
+	width:100%;
+	top:0;
+	left:0;
+	/*outline:1px solid black;*/
+	display: none;
+	padding:20px;
+}
+.title{
+	float:left;
+	width:100px;
+}
+.sub.title{
+	margin-left: 20px;
+}
+.page.two, .page.three{
+	padding: 20px 0px;
+	overflow-x: auto;
+}
+table{
+	width:95%;
+	margin: auto;
+	/*border:1px solid;*/
+}
+th{
+	font-size: 24px;
+	text-align: left;
+}
+td,th{
+	padding: 10px 20px;
+}
+.page.two tr:nth-child(even){
+	background-color: #FFF3E5;
+}
+.page.two td .position{
+	color: grey;
+}
+.page.two .section{
+	background-color: #F1F1F1;
+}
+/*.page.three{
+	padding: 20px 0px;
+}
+.page.three table{
+	width: 95%;
+	margin:auto;
+	border: 1px solid black;
+}*/
+.page.three table{
+	border-collapse: collapse;
+}
+.page.three .home-team{
+	background-color: #FFF3E5;
+}
+.page.three .home-team td{
+	border-bottom: 1px solid #FFDDB5;
+}
+.page.three .away-team{
+	
+}
+.page.three .away-team td{
+	border-bottom: 1px solid #EBEBEB;
+}
+@media screen and (max-width: 720px){
+	.flag-image{
+		width:200px;
+		height: 115px;	
+	}
+}
+@media screen and (max-width: 650px){
+	.pc-view{
+		display: none;
+	}
+}
+@media screen and (max-width: 550px){
+	#cover{
+		height: 300px;
+	}
+	.flag-image{
+		width:100px;
+		height:60px;
+	}
+	#cover-data-container{
+		font-size: 14px;
+	}
+	.score-container{
+		font-size: 40px;
+	}
+	.page.three td{
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+	.page.three th{
+		padding: 5px 10px;
+		font-size: 20px;
+	}
+}
+@media screen and (max-width: 410px){
+	.page.two td{
+		padding: 5px 10px;
+		font-size: 16px;
+	}
+	.page.two th{
+		padding: 5px 10px;
+		font-size: 20px;
+	}
+	.page.three td{
+		padding: 5px 8px;
+		font-size: 14px;
+	}
+	.page.three th{
+		padding: 5px 8px;
+		font-size: 16px;
+	}
+}
+@media screen and (max-width: 320px){
+	.page.two td,th{
+		padding: 2px 5px;
+		font-size: 12px;
+	}
+	.page.three td{
+		padding: 5px 5px;
+		font-size: 12px;
+	}
+	.page.three th{
+		padding: 5px 5px;
+		font-size: 14px;
+	}
+}

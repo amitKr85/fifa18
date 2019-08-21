@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'open-sans';
+    src: url(../fonts/openSans.woff2);
+}
+:root{
+	--primary-color:#E87D02;
+	--secondary-color:#C2C2C2;
+}
+body {
+    margin: 0;
+}

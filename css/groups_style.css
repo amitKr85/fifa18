@@ -1,0 +1,84 @@
+#content{
+	margin-top: 48px;
+	font-family: 'open-sans';
+}
+.group-name-container{
+	background-color:var(--secondary-color);
+	color:black;
+	text-align:center;
+	font-weight: bold;
+	padding:10px;
+	margin-bottom: 10px;
+}
+.countries-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	padding:20px 20px;
+}
+.country-container{
+
+}
+.flag-image{
+	width:250px;
+	height:145px;
+	object-fit: fill;
+	padding:5px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.3);
+}
+.country-name{
+	text-align: center;
+	text-transform: capitalize;
+	padding:10px;
+}
+.button-container{
+	text-align: center;
+}
+.more-info-button{
+	display: inline-block;
+	text-decoration: none;
+	padding:10px 20px;
+	margin:10px 20px;
+	border-radius: 0;
+	background-color: var(--primary-color);
+	border:1px solid var(--primary-color);
+	font-family: open-sans;
+	color:white;
+}
+.more-info-button:hover{
+	box-shadow: 5px 5px 5px #CBCBCB;
+}
+.more-info-button:active{
+	box-shadow: none;
+}
+.mobile-view{
+	display: none;
+}
+hr{
+	width:95%;
+	border:1px solid #EBEBEB;
+	margin-bottom: 20px;
+}
+@media screen and (max-width: 720px){
+	.flag-image{
+		width: 150px;
+		height: 88px;
+	}
+}
+@media screen and (max-width: 650px){
+	.flag-image{
+		width: 100px;
+		height: 58px;
+	}
+}
+@media screen and (max-width: 450px){
+	.countries-container{
+		flex-direction: column;
+		align-content: flex-start;
+	}
+	.country-container{
+		width:80%;
+	}
+}

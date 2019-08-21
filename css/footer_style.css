@@ -1,0 +1,35 @@
+footer{
+	background-color:#E2E2E2;
+	color:black;
+	font-family: open-sans;
+	padding:20px 10px;
+}
+.email-button{
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+	background-color: var(--primary-color);
+	padding:5px 10px;
+	margin-left: 20px;
+}
+.email-button:hover{
+	box-shadow: 5px 5px 5px #CBCBCB;
+}
+.email-button a:active{
+	box-shadow: none;
+}
+.footer-goto-fifa{
+	margin-top:10px;
+}
+.footer-goto-fifa a{
+	color:inherit;
+}
+.footer-site-name{
+	margin-top: 10px;
+	text-align: center;
+}
+@media screen and (max-width: 375px){
+	.email-button{
+		margin-left: 0;
+	}
+}

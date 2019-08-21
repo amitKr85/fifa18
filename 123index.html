@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="css/index_style.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+	</style>
+</head>
+<body>
+<header>
+	<div id="cover">
+		<div id="cover-upper-layer"></div>
+		<div id="cover-caption">rojo's premonition becomes glorious reality</div>
+		<img src="images/fifa_2018_cup_2.png" alt="FIFA 2018" class="fifa-cup-image">
+	</div>
+	<div id="top-nav">
+		<a href="#"><div class="site-name">FIFA WC <span class="year">2018</span></div></a>
+		<ul id="top-nav-list">
+			<a href="#"><li>Today</li></a>
+			<a href="#"><li>Groups & Teams</li></a>
+			<a href="https://www.fifa.com" target="_blank"><li>Go to FIFA.com</li></a>
+		</ul>
+	</div>
+</header>
+<div id="content">
+	<div class="date-list-item">
+		Monday,25 June 2018
+	</div>
+	<div class="score-list-item">
+		<div class="data-container">
+			<div class="team-container home-team">
+				<div class="flag-container home-team">
+					<img src="images/flags/Argentina.png" alt="Argentina" class="flag-image">
+				</div>
+				<div class="team-name-container home-team">
+					Argentina
+				</div>
+			</div>
+			<div class="time-score-status-container">
+				<div class="time-container">11:30 PM</div>
+				<div class="score-container">
+					<span class="goals home-team">1</span>-<span class="goals away-team">2</span></div>
+				<div class="status-container">End</div>
+				<div class="learn-more-button-container">
+					<button class="learn-more-button">Learn More ></button>
+				</div>
+			</div>
+			<div class="team-container away-team">
+				<div class="flag-ontainer away-team">
+					<img src="images/flags/Nigeria.png" alt="Nigeria" class="flag-image">
+				</div>
+				<div class="team-name-container away-team">
+					Nigeria
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr class="divider">
+	
+</div>
+<footer>
+	&copy;
+</footer>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(window).on('scroll',updateTopNav);
+	function updateTopNav(){
+		var $topNav=$('#top-nav');
+		var topLimit=$('#cover-caption').offset().top - $topNav.outerHeight();
+		if($(window).scrollTop() > topLimit){
+			$('#top-nav').addClass('bgcolor');
+			$('.site-name .year').addClass('colored');
+		}
+		else{
+			$('#top-nav').removeClass('bgcolor');	
+			$('.site-name .year').removeClass('colored');
+		}
+	}
+
+	function buildPage(){
+		$.ajax({
+			url:'test_jsons/matches.json',
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				//console.log(data);
+				console.log('success');
+
+			/*	var $template=$('<div><img src="" alt=""></div>');
+				for(i in data){
+					 var name=data[i].country;
+					 console.log(name);
+					 var $temp=$template.clone();
+					 //console.log($temp);
+					 $temp.find('img').attr({'src':'images/flags/'+name+'.png','alt':name});
+					 //console.log($temp);
+					 $('#content').append($temp);
+				}
+				*/
+			},
+			error:function(){
+				console.log('error');
+			},
+			complete:function(){
+				console.log('complete');
+			}
+		});
+	}
+
+	$(function(){
+		console.log($('#top-nav').outerHeight());
+		buildPage();
+	});
+</script>
+</body>
+</html>
